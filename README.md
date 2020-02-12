@@ -171,4 +171,9 @@ function mostrarImporteDeUnViaje()
 
 
 
+5="5"
+comparacion abstracta no compara tipos de datos.
 
+
+5!=="5"
+desigualdad estricta = true
