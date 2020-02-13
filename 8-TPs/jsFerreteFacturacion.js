@@ -4,19 +4,19 @@ B.	Ingresar tres precios de productos y mostrar el promedio de los mismos.
 C.	ingresar tres precios de productos  y mostrar precio final (más IVA 21%).
 */
 function Sumar () {
-	console.log("sumar");
+	console.log("calculando la suma...");
 	var values = getValues();
 	alert(values[0]+values[1]+values[2]);
 }
 
 function Promedio () {
-	console.log("promedio");
+	console.log("calculando el promedio...");
 	var values = getValues();
 	alert((values[0]+values[1]+values[2])/values.length);
 }
 
 function PrecioFinal () {
-	console.log("promedio");
+	console.log("calculando el precio final...");
 	var values = getValues();
 	var sumatoria;
 	sumatoria = values[0]+values[1]+values[2]
