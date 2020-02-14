@@ -4,6 +4,6 @@ function mostrar()
 	var mensaje;
 	mensaje = "Esto funciona de maravilla";
 
-	alert(mensaje);
+	confirm(mensaje);
 }
 
