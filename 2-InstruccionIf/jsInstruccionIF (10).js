@@ -3,7 +3,7 @@ function mostrar() {
   //como no existe una nota mayor a 10 se contempla que la nota llegue a 9.9 como max
   numeroAleatorio = Math.random() * (10 - 1) + 1;
 	
-  //console.log(numeroAleatorio); //-> con esto puedo imprimir en consola el numeroAleatorio y checkear que realmente este funcionando
+  console.log(parseInt(numeroAleatorio)); //-> con esto puedo imprimir en consola el numeroAleatorio y checkear que realmente este funcionando
   if (numeroAleatorio >= 9) {
     //"EXCELENTE" para notas igual a 9 o 10
 	alert("EXCELENTE");
