@@ -27,31 +27,27 @@ function CalcularPrecio () {
     }
 }
 
-function pasoCantidadLamparasYlasMarcas(cantidadDeLamparas,marca){
+function pasoCantidadLamparasYlasMarcas(cantidadDeLamparas, marca){
     if (cantidadDeLamparas == 5 && marca =="ArgentinaLuz"){//0.40
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.4);
-    } else if (cantidadDeLamparas == 5 && marca != "ArgentinaLuz" && marca != ""){//0.30
+    } else if (cantidadDeLamparas === 5 && marca != "ArgentinaLuz" && marca != ""){//0.30
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.3);
-    }
-    if (cantidadDeLamparas == 4 && marca == "ArgentinaLuz" || marca =="FelipeLamparas"){//0.25
+    } else if (cantidadDeLamparas === 4 && marca == "ArgentinaLuz" || marca =="FelipeLamparas"){//0.25
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.25);
-    } else if (cantidadDeLamparas == 4 && marca != "ArgentinaLuz" && marca !="FelipeLamparas"){//0.20
+    } else if (cantidadDeLamparas === 4 && marca != "ArgentinaLuz" && marca !="FelipeLamparas"){//0.20
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.2);
-    }
-    if (cantidadDeLamparas == 3 && marca == "ArgentinaLuz"){//0.15
+    } else if (cantidadDeLamparas === 3 && marca == "ArgentinaLuz"){//0.15
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.15);
-    } else if (cantidadDeLamparas == 3 && marca == "FelipeLamparas"){//0.1
+    } else if (cantidadDeLamparas === 3 && marca == "FelipeLamparas"){//0.1
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.1);
-    } else (cantidadDeLamparas == 3 && marca != "ArgentinaLuz" && marca !="FelipeLamparas");{//0.05
+    } else (cantidadDeLamparas === 3 && marca != "ArgentinaLuz" && marca !="FelipeLamparas");{//0.05
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.05);
     }
 }
 
 function obtenerImporteTotalConDescuento(cantidad, descuento){
     var importe = cantidad*35;
-    if(cantidad>=6){
-        var importeTotalConDescuento = Math.floor(importe*descuento);
-    } else {
+    if(cantidad){
         var importeTotalConDescuento = Math.floor(importe-(importe*descuento));
     }
     if(importeTotalConDescuento>120){
