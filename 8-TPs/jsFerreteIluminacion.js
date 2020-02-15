@@ -8,47 +8,91 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
  */
 
+//una funcion que me devuelva el porcentaje de descuento
+// 5 y ArgentinaLuz -> 50%
+
 function CalcularPrecio () {
-    var cantidadDeLamparitas;
-    var precioDeLamparita;
-    var marcaDeLaLamparitaSeleccionada;
-    
-    cantidadDeLamparitas = parseInt(document.getElementById("Cantidad").value);
-    marcaDeLaLamparitaSeleccionada = document.getElementById("Marca").value;
-    precioDeLamparita = 35;
+    var cantidadDeLamparas;
+    var importeTotalConDescuento;
+    var importeConDescuentoEingresosBrutos;
 
-    switch(true){
-        case cantidadDeLamparitas >= 6:
-            // A descuento 50%
-            // Si el importe final con descuento suma más de $120  se debe sumar un 10% de ingresos brutos
-            var importe;
-            var importeTotalConDescuento;
-            var importeConDescuentoEingresosBrutos;
+    cantidadDeLamparas = parseInt(document.getElementById("Cantidad").value);
+    marca = document.getElementById("Marca").value;
 
-            importe = cantidadDeLamparitas*precioDeLamparita;
-            importeTotalConDescuento = Math.floor(importe*0.5).toFixed(2);
+    if(cantidadDeLamparas>=6){
+        pasoCantidadLamparasYlasMarcas(cantidadDeLamparas, "");
+    } else {
+        switch(cantidadDeLamparas){
+            case 5:
+                pasoCantidadLamparasYlasMarcas(cantidadDeLamparas, marca);
+                break;
+            case 4:
+                pasoCantidadLamparasYlasMarcas(cantidadDeLamparas, marca);
+                break;
+            case 3:    
+                pasoCantidadLamparasYlasMarcas(cantidadDeLamparas, marca);
+                break;
+        }
+ 	}
+}
 
-            if(importeTotalConDescuento>120){
-                importeConDescuentoEingresosBrutos = importeTotalConDescuento*1.1;
-                alert("Usted pago "+ (importeConDescuentoEingresosBrutos-importeTotalConDescuento) +" de IIBB siendo"+ importeConDescuentoEingresosBrutos);
-            } else {
-                alert("Usted debe pagar "+ importeTotalConDescuento);
-            }
-            break;
-        case cantidadDeLamparitas === 5:
-            // B descuento "ArgentinaLuz" se hace un descuento del 40 y si es de otra marca el descuento es del 30%
-            // Si el importe final con descuento suma más de $120  se debe sumar un 10% de ingresos brutos
-
-            if()
-            break;
-        case cantidadDeLamparitas === 4:
-            // C 4 lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%
-            // Si el importe final con descuento suma más de $120  se debe sumar un 10% de ingresos brutos
-            break;
-        case cantidadDeLamparitas === 3:
-            // D 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
-            // Si el importe final con descuento suma más de $120  se debe sumar un 10% de ingresos brutos
-            break;
+function pasoCantidadLamparasYlasMarcas(cantidadDeLamparas,marca){
+    if(cantidadDeLamparas==6 && marca==""){
+        importeTotalConDescuento = obtenerImporteTotalConDescuento(cantidadDeLamparas,0.5);
+        calcularImporteTotalConDescuento(importeTotalConDescuento);
+    } 
+    if (cantidadDeLamparas==5 && marca =="ArgentinaLuz"){
+        //0.40
+        importeTotalConDescuento = obtenerImporteTotalConDescuento(cantidadDeLamparas,0.4);
+        calcularImporteTotalConDescuento(importeTotalConDescuento);
     }
- 	
+    if (cantidadDeLamparas==5 && marca !="ArgentinaLuz"){
+        //0.30
+        importeTotalConDescuento = obtenerImporteTotalConDescuento(cantidadDeLamparas,0.3);
+        calcularImporteTotalConDescuento(importeTotalConDescuento);
+    }
+    if (cantidadDeLamparas==4 && marca =="ArgentinaLuz" || marca =="FelipeLamparas"){
+        //0.25
+        importeTotalConDescuento = obtenerImporteTotalConDescuento(cantidadDeLamparas,0.25);
+        calcularImporteTotalConDescuento(importeTotalConDescuento);
+    }
+    if (cantidadDeLamparas==4 && marca !="ArgentinaLuz" && marca !="FelipeLamparas"){
+        //0.20
+        importeTotalConDescuento = obtenerImporteTotalConDescuento(cantidadDeLamparas,0.2);
+        calcularImporteTotalConDescuento(importeTotalConDescuento);
+    }
+    if (cantidadDeLamparas==3 && marca =="ArgentinaLuz"){
+        //0.15
+        importeTotalConDescuento = obtenerImporteTotalConDescuento(cantidadDeLamparas,0.15);
+        calcularImporteTotalConDescuento(importeTotalConDescuento);
+    }
+    if (cantidadDeLamparas==3 && marca =="FelipeLamparas"){
+        //0.1
+        importeTotalConDescuento = obtenerImporteTotalConDescuento(cantidadDeLamparas,0.1);
+        calcularImporteTotalConDescuento(importeTotalConDescuento);
+    }
+    if (cantidadDeLamparas==3 && marca !="ArgentinaLuz" && marca !="FelipeLamparas"){
+        //0.05
+        importeTotalConDescuento = obtenerImporteTotalConDescuento(cantidadDeLamparas,0.05);
+        calcularImporteTotalConDescuento(importeTotalConDescuento);
+    }
+}
+
+function calcularImporteTotalConDescuento(importeTotalConDescuento){
+    if(importeTotalConDescuento>120){
+        importeConDescuentoEingresosBrutos = importeTotalConDescuento*1.1;
+        alert("Usted pago "+ (importeConDescuentoEingresosBrutos-importeTotalConDescuento) +" de IIBB siendo"+ importeConDescuentoEingresosBrutos + " el pago total");
+    } else {
+        alert("Usted debe pagar "+ importeTotalConDescuento);
+    }
+}
+
+function obtenerImporteTotalConDescuento(cantidad, descuento){
+    var importe;
+    importe = cantidad*35;
+    if(cantidad>=6){
+        return Math.floor(importe*descuento);
+    } else {
+        return Math.floor(importe-(importe*descuento));
+    }
 }
