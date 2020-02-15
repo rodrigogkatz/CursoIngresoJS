@@ -9,9 +9,8 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */ //una funcion que me devuelva el porcentaje de descuento // 5 y ArgentinaLuz -> 50%
 
 function CalcularPrecio () {
-    var cantidadDeLamparas;
-    cantidadDeLamparas = parseInt(document.getElementById("Cantidad").value);
-    marca = document.getElementById("Marca").value;
+    var cantidadDeLamparas = parseInt(document.getElementById("Cantidad").value);
+    var marca = document.getElementById("Marca").value;
     if(cantidadDeLamparas>=6 && marca!=""){
         obtenerImporteTotalConDescuento(cantidadDeLamparas,0.5);
     }
@@ -49,19 +48,14 @@ function pasoCantidadLamparasYlasMarcas(cantidadDeLamparas,marca){
 }
 
 function obtenerImporteTotalConDescuento(cantidad, descuento){
-    var importe;
-    var importeTotalConDescuento;
-    var importeConDescuentoEingresosBrutos;
-    importe = cantidad*35;
+    var importe = cantidad*35;
     if(cantidad>=6){
-        importeTotalConDescuento = Math.floor(importe*descuento);
-         importeTotalConDescuento;
+        var importeTotalConDescuento = Math.floor(importe*descuento);
     } else {
-        importeTotalConDescuento = Math.floor(importe-(importe*descuento));
-         importeTotalConDescuento;
+        var importeTotalConDescuento = Math.floor(importe-(importe*descuento));
     }
     if(importeTotalConDescuento>120){
-        importeConDescuentoEingresosBrutos = importeTotalConDescuento*1.1;
+        var importeConDescuentoEingresosBrutos = importeTotalConDescuento*1.1;
         alert("Usted pago "+ (importeConDescuentoEingresosBrutos-importeTotalConDescuento) +" de IIBB siendo"+ importeConDescuentoEingresosBrutos + " el pago total");
     } else {
         alert("Usted debe pagar "+ importeTotalConDescuento);
