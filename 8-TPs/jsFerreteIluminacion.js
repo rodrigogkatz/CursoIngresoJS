@@ -43,7 +43,7 @@ function pasoCantidadLamparasYlasMarcas(cantidadDeLamparas,marca){
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.15);
     } else if (cantidadDeLamparas == 3 && marca == "FelipeLamparas"){//0.1
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.1);
-    } else (cantidadDeLamparas == 3 && marca != "ArgentinaLuz" && marca !="FelipeLamparas"){//0.05
+    } else (cantidadDeLamparas == 3 && marca != "ArgentinaLuz" && marca !="FelipeLamparas");{//0.05
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.05);
     }
 }
