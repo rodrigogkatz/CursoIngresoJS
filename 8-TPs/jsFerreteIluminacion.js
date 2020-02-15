@@ -16,27 +16,35 @@ function CalcularPrecio () {
     }
     switch(cantidadDeLamparas){
         case 5:
-            pasoCantidadLamparasYlasMarcas(cantidadDeLamparas, marca);
+            pasoCincoLamparasYlasMarca(cantidadDeLamparas, marca);
             break;
         case 4:
-            pasoCantidadLamparasYlasMarcas(cantidadDeLamparas, marca);
+            pasoCuatroLamparasYlasMarca(cantidadDeLamparas, marca);
             break;
         case 3:    
-            pasoCantidadLamparasYlasMarcas(cantidadDeLamparas, marca);
+            pasoTresLamparasYlasMarca(cantidadDeLamparas, marca);
             break;
     }
 }
 
-function pasoCantidadLamparasYlasMarcas(cantidadDeLamparas, marca){
+function pasoCincoLamparasYlasMarca(cantidadDeLamparas, marca){
     if (cantidadDeLamparas == 5 && marca =="ArgentinaLuz"){//0.40
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.4);
     } else if (cantidadDeLamparas === 5 && marca != "ArgentinaLuz" && marca != ""){//0.30
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.3);
-    } else if (cantidadDeLamparas === 4 && marca == "ArgentinaLuz" || marca =="FelipeLamparas"){//0.25
+    } 
+}
+
+function pasoCuatroLamparasYlasMarca(cantidadDeLamparas, marca){
+    if (cantidadDeLamparas === 4 && marca == "ArgentinaLuz" || marca =="FelipeLamparas"){//0.25
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.25);
     } else if (cantidadDeLamparas === 4 && marca != "ArgentinaLuz" && marca !="FelipeLamparas"){//0.20
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.2);
-    } else if (cantidadDeLamparas === 3 && marca == "ArgentinaLuz"){//0.15
+    }
+}
+
+function pasoTresLamparasYlasMarca(cantidadDeLamparas, marca){
+     if (cantidadDeLamparas === 3 && marca == "ArgentinaLuz"){//0.15
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.15);
     } else if (cantidadDeLamparas === 3 && marca == "FelipeLamparas"){//0.1
         obtenerImporteTotalConDescuento(cantidadDeLamparas, 0.1);
