@@ -5,9 +5,10 @@
  */
 
 function mostrar() {
-  var numero = prompt("ingrese un numero");
+  var numero = parseInt(prompt("ingrese un numero"));
 
-  for (var i = 0; i < numero; i++) {
-      
+  for (var i = 1; i < numero; i++) {
+      cantiadDeNumerosParesEncontrados = Math.floor(numero/2); 
+
   }
 }
