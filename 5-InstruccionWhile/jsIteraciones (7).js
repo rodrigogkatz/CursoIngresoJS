@@ -7,7 +7,7 @@ function mostrar() {
 		acumulador += numero;
 		document.getElementById('suma').value = acumulador;
 		contador++;
-		var pregunta = prompt("desea continuar?");
+		var pregunta = prompt("desea continuar?").toLowerCase();
 		if(pregunta && pregunta != "si".toLowerCase()){
 			respuesta = "no".toLowerCase();
 		}

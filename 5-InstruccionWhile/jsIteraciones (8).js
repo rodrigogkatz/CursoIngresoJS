@@ -9,7 +9,7 @@ function mostrar() {
 			positivo += numero;
 			document.getElementById('suma').value = positivo;
 		}
-		if (numero>0){
+		if (numero<0){
 			negativo *= numero;
 			document.getElementById('producto').value = negativo;
 		}
