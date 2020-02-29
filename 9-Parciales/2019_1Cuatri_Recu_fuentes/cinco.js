@@ -27,6 +27,7 @@ function mostrar()
     var importePorDia = 100;
     var importeSinDescuento = 0;
     var importeConDescuento = 0;
+    var importeConRecargo = 0;
     var importedescuentoPorFormaDePago = 0;
 
     var queContinenteQuiereVisitar = prompt("ingresar que continente le gustaria visitar");
@@ -37,21 +38,43 @@ function mostrar()
     //100%  - 100
     //15%   - ?
     switch(queContinenteQuiereVisitar){
-        case 'America': 
+        case 'America':
+            importeSinDescuento = cantidadDeDias*importePorDia;
+            importeConDescuento = importeSinDescuento - (importeSinDescuento*0.30);
+            if(formaDePago=="debito"){
+                importedescuentoPorFormaDePago = importeConDescuento - (importeConDescuento*0.10);
+            }
+            break;
+        case 'Africa':
+        case 'Oceania': 
             importeSinDescuento = cantidadDeDias*importePorDia;
             importeConDescuento = importeSinDescuento - (importeSinDescuento*0.15);
             if(formaDePago=="debito"){
                 importedescuentoPorFormaDePago = importeConDescuento - (importeConDescuento*0.10);
             }
             break;
-        case 'Africa': 
-            //code
-            break;
         case 'Europa': 
-            //code
+            importeSinDescuento = cantidadDeDias*importePorDia;
+            importeConDescuento = importeSinDescuento - (importeSinDescuento*0.20);
+            if(formaDePago=="debito"){
+                importedescuentoPorFormaDePago = importeConDescuento - (importeConDescuento*0.15);
+            } else if(formaDePago=="mercadoPago"){
+                importedescuentoPorFormaDePago = importeConDescuento - (importeConDescuento*0.10);
+            } else {
+                importedescuentoPorFormaDePago = importeConDescuento - (importeConDescuento*0.05);
+            }
             break;
         default: 
-            //code
+            //cualquier otro continente tiene un recargo del 20% 
+            //en cualquier continenete , si paga con cheque, se recarga un 15% de impuesto al cheque *
+            if(formaDePago != "cheque"){
+                importeSinDescuento = cantidadDeDias*importePorDia;
+                importeConRecargo = importeSinDescuento + (importeSinDescuento*0.20);
+            } else {
+                importeSinDescuento = cantidadDeDias*importePorDia;
+                importeConRecargo = importeSinDescuento + (importeSinDescuento*0.20);
+                importeConRecargoMasImpuesto = importeConRecargo +(importeConRecargo*0.15);
+            }
             break;
     }
 }
